@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+// this class represents one card 
 class TarotCard
 {
 public:
