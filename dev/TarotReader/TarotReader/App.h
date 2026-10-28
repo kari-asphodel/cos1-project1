@@ -13,5 +13,6 @@ private:
 	void DrawCard();
 	void BrowseCards();
 	void DisplayAbout() const;
+	void DisplayWelcome() const;
 };
 
