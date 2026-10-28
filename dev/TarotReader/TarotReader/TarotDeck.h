@@ -7,7 +7,7 @@ class TarotDeck
 public:
 	TarotDeck();
 
-	void DisplayDeck();
+	void DisplayDeck() const;
 	void DisplayCard(int index) const;
 	void DrawCard() const;
 private:

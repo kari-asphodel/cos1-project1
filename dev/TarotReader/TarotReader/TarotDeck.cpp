@@ -9,7 +9,13 @@ TarotDeck::TarotDeck()
 
 void TarotDeck::CreateDeck()
 {
-	cards.push_back(TarotCard(0, "The Fool", "Beginnings, freedom, adventure", "A new journey is beginning. Be open to possibilities and trust yourself as you move forward", "A warning against recklessness, poor planning, or rushing into something without considering the consequences.", R"(
+    cards.push_back(TarotCard(
+        0,
+        "The Fool",
+        "Beginnings, freedom, adventure",
+        "A new journey is beginning. Be open to possibilities and trust yourself as you move forward.",
+        "A warning against recklessness, poor planning, or rushing into something without considering the consequences.",
+        R"(
         +-------------------+
         |         0         |
         |                   |
@@ -20,9 +26,17 @@ void TarotDeck::CreateDeck()
         |     /       \     |
         |                   |
         |     THE FOOL      |
-        +-------------------+)"));
+        +-------------------+
+)"
+));
 
-    cards.push_back(TarotCard(1, "The Magician", "Willpower, skill, manifestation", "You have the skills and resources needed to turn an idea into reality.", "Potential is being wasted or abilities may be used without clear purpose or direction.", R"(
+    cards.push_back(TarotCard(
+        1,
+        "The Magician",
+        "Willpower, skill, manifestation",
+        "You have the skills and resources needed to turn an idea into reality.",
+        "Potential is being wasted or abilities may be used without clear purpose or direction.",
+        R"(
         +-------------------+
         |         I         |
         |       _____       |
@@ -33,9 +47,17 @@ void TarotDeck::CreateDeck()
         |        / \        |
         |                   |
         |   THE MAGICIAN    |
-        +-------------------+)"));
+        +-------------------+
+)"
+));
 
-    cards.push_back(TarotCard(2,"The High Priestess","Intuition, mystery, inner knowledge","Listen closely to your intuition and pay attention to what may exist beneath the surface.","You may be ignoring your intuition or struggling to hear your own inner voice.",R"(
+    cards.push_back(TarotCard(
+        2,
+        "The High Priestess",
+        "Intuition, mystery, inner knowledge",
+        "Listen closely to your intuition and pay attention to what may exist beneath the surface.",
+        "You may be ignoring your intuition or struggling to hear your own inner voice.",
+        R"(
         +-------------------+
         |        II         |
         |      (     )      |
@@ -46,14 +68,15 @@ void TarotDeck::CreateDeck()
         |                   |
         |                   |
         | HIGH PRIESTESS    |
-        +-------------------+)"));
+        +-------------------+
+)"
+));
 }
-
 void TarotDeck::DisplayDeck() const
 {
     std::cout << "\n=== MAJOR ARCANA ===\n\n";
 
-    for (const TarotCard& card:cards)
+    for (const TarotCard& card : cards)
     {
         std::cout << card.GetNumber() << " - " << card.GetName() << "\n";
     }
