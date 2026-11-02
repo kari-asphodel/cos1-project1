@@ -499,7 +499,36 @@ const TarotCard& TarotDeck::GetCard(int index) const
     return cards[index];
 }
 
-//std::vector<int>TarotDeck::DrawUniqueCards(int amount) const
-//{
-//
-//}
+std::vector<int>TarotDeck::DrawUniqueCards(int amount) const
+{
+    std::vector<int> selectedIndexes;
+    if (cards.empty())
+    {
+        return selectedIndexes;
+    }
+    int cardCount = static_cast<int>(cards.size());
+
+    if (amount > cardCount)
+    {
+        amount = cardCount;
+    }
+    while (static_cast<int>(selectedIndexes.size() < amount)
+    {
+        int randomIndex = std::rand() % cardCount;
+
+        bool alreadySelected = false;
+        for (int index : selectedIndex)
+        {
+            if (index == randomIndex)
+            {
+                alreadySelected = true;
+                break;
+            }
+        }
+        if (!alreadySelected)
+        {
+            selectedIndexes.push_back(randomIndex);
+        }
+    }
+    return selectedIndexes;
+}
