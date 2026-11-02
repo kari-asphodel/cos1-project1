@@ -512,12 +512,12 @@ std::vector<int>TarotDeck::DrawUniqueCards(int amount) const
     {
         amount = cardCount;
     }
-    while (static_cast<int>(selectedIndexes.size() < amount)
+    while (static_cast<int>(selectedIndexes.size() < amount))
     {
         int randomIndex = std::rand() % cardCount;
 
         bool alreadySelected = false;
-        for (int index : selectedIndex)
+        for (int index : selectedIndexes)
         {
             if (index == randomIndex)
             {
