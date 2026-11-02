@@ -8,7 +8,7 @@
 #include <string>
 #include <vector>
 
-TarotRead::TarotReading(TarotDeck& deck) : deck(deck) {}
+TarotReading::TarotReading(TarotDeck& deck) : readingDeck(deck) {}
 
 bool TarotReading::DetermineOrientation() const
 {
@@ -30,7 +30,7 @@ void TarotReading::OneCardReading()
 	std::string question = Input::GetString("Enter your question or intention:\n");
 	ConsoleColor::Print("The cards are shuffling...\n", ConsoleColor::Ink::Purple);
 
-	const TarotCard& card = deck.DrawCard();
+	const TarotCard& card = readingDeck.DrawCard();
 	bool isReversed = DetermineOrientation();
 
 	ConsoleColor::Print("\nYour card is...\n", ConsoleColor::Ink::Cyan);
@@ -39,4 +39,9 @@ void TarotReading::OneCardReading()
 	card.DisplayReading(isReversed);
 	ConsoleColor::Print("\nYour question:\n", ConsoleColor::Ink::Yellow);
 	std::cout << question << "\n";
+}
+
+void TarotReading::ThreeCardReading()
+{
+
 }

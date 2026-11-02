@@ -496,10 +496,10 @@ const TarotCard& TarotDeck::DrawCard() const
 
 const TarotCard& TarotDeck::GetCard(int index) const
 {
-    returns cards[index];
+    return cards[index];
 }
 
-std::vector<int>TarotDeck::DrawUniqueCards(int amount) const
-{
-
-}
+//std::vector<int>TarotDeck::DrawUniqueCards(int amount) const
+//{
+//
+//}
