@@ -1,5 +1,6 @@
 #include "App.h"
 #include "ConsoleColor.h"
+#include "Input.h"
 #include <cstdlib>
 #include <ctime>
 #include<iostream>
@@ -19,7 +20,7 @@ void App::Run()
 	{
 		DisplayMenu();
 
-		std::cin >> choice;
+		choice = Input::GetNumber("Choose your path: ", 1,5);
 
 		switch (choice)
 		{
@@ -62,7 +63,6 @@ void App::DisplayMenu() const
 	ConsoleColor::Print("4. Exit\n", ConsoleColor::Ink::Cyan);
 
 	std::cout << "\n";
-	ConsoleColor::Print("Choose your path: ", ConsoleColor::Ink::Yellow);
 }
 
 void App::DrawCard()
@@ -80,8 +80,7 @@ void App::BrowseCards()
 	int cardChoice = 0;
 
 	std::cout << "\n";
-	std::cout << "Enter a card number (0-21): ";
-	std::cin >> cardChoice;
+	cardChoice = Input::GetNumber("\nEnter a card number (0-21): ", 0, 21);
 
 	if (cardChoice >= 0 && cardChoice <= 21)
 	{
