@@ -498,3 +498,8 @@ const TarotCard& TarotDeck::GetCard(int index) const
 {
     returns cards[index];
 }
+
+std::vector<int>TarotDeck::DrawUniqueCards(int amount) const
+{
+
+}
