@@ -8,3 +8,11 @@ void Case1()
         std::cout << "You have died.\n";
     }
 }
+
+// BUG COURT: CASE 1
+// What is the primary bug?
+// A. The health variable is never declared
+// B. The condition assigns 0 instead of comparing values
+// C. The output statement is missing a semicolon
+// D. The condition checks the wrong variable
+// Cast your verdict in chat: A, B, C, or D.

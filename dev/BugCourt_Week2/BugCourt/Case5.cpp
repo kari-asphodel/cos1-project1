@@ -10,3 +10,11 @@ void Case5()
 
     std::cout << inventory[0];
 }
+
+// BUG COURT: CASE 5
+// Why is inventory[0] unsafe here?
+// A. push_back does not add an item
+// B. clear removes all items before the access
+// C. Strings cannot be stored in vectors
+// D. The vector must be sorted first
+// Cast your verdict in chat: A, B, C, or D.
