@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <vector>
 // this class represents one card 
 class TarotCard
 {
@@ -12,8 +13,13 @@ public:
 	std::string GetUprightMeaning() const;
 	std::string GetReversedMeaning() const;
 	std::string GetAsciiArt() const;
-
+	
 	void DisplayCard() const;
+
+
+	std::vector<std::string> GetAsciiLines() const;
+	void DisplayReading(bool isReversed) const;
+
 private:
 	int number;
 	std::string name;

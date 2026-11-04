@@ -1,10 +1,11 @@
 #include "App.h"
 #include "ConsoleColor.h"
+#include "Input.h"
 #include <cstdlib>
 #include <ctime>
 #include<iostream>
 
-App::App()
+App::App(): readings(deck)
 {
 	std::srand(static_cast<unsigned int>(std::time(nullptr)));
 }
@@ -15,26 +16,29 @@ void App::Run()
 
 	int choice = 0;
 
-	while (choice != 4)
+	while (choice != 5)
 	{
 		DisplayMenu();
 
-		std::cin >> choice;
+		choice = Input::GetNumber("Choose your path: ", 1,5);
 
 		switch (choice)
 		{
 		case 1:
-			DrawCard();
+			readings.OneCardReading();
 			break;
 		case 2:
-			BrowseCards();
+			readings.ThreeCardReading();
 			break;
 		case 3:
-			DisplayAbout();
+			BrowseCards();
 			break;
 		case 4:
+			DisplayAbout();
+			break;
+		case 5:
 			std::cout << "\n";
-			std::cout << "The cards have spoken. Until next time.\n";
+			ConsoleColor::Print("The cards have spoken. Until next time.\n", ConsoleColor::Ink::Purple);
 			break;
 		default:
 			ConsoleColor::Print("\nThe cards do not recognize that choice.\n", ConsoleColor::Ink::Red);
@@ -56,22 +60,13 @@ void App::DisplayMenu() const
 
 	std::cout << "\n";
 
-	ConsoleColor::Print("1. Draw a Card\n", ConsoleColor::Ink::Cyan);
-	ConsoleColor::Print("2. Browse the Major Arcana\n", ConsoleColor::Ink::Cyan);
-	ConsoleColor::Print("3. About Tarot\n", ConsoleColor::Ink::Cyan);
-	ConsoleColor::Print("4. Exit\n", ConsoleColor::Ink::Cyan);
+	ConsoleColor::Print("1. One-Card Reading\n", ConsoleColor::Ink::Cyan);
+	ConsoleColor::Print("2. Three-Card Reading\n", ConsoleColor::Ink::Cyan);
+	ConsoleColor::Print("3. Browse the Major Arcana\n", ConsoleColor::Ink::Cyan);
+	ConsoleColor::Print("4. About Tarot\n", ConsoleColor::Ink::Cyan);
+	ConsoleColor::Print("5. Exit\n", ConsoleColor::Ink::Cyan);
 
 	std::cout << "\n";
-	ConsoleColor::Print("Choose your path: ", ConsoleColor::Ink::Yellow);
-}
-
-void App::DrawCard()
-{
-	ConsoleColor::Print("\nThe cards are shuffling...\n", ConsoleColor::Ink::Purple);
-
-	ConsoleColor::Print("Your card is:\n", ConsoleColor::Ink::Green);
-
-	deck.DrawCard();
 }
 
 void App::BrowseCards()
@@ -80,8 +75,7 @@ void App::BrowseCards()
 	int cardChoice = 0;
 
 	std::cout << "\n";
-	std::cout << "Enter a card number (0-21): ";
-	std::cin >> cardChoice;
+	cardChoice = Input::GetNumber("\nEnter a card number (0-21): ", 0, 21);
 
 	if (cardChoice >= 0 && cardChoice <= 21)
 	{

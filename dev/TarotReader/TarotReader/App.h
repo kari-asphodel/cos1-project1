@@ -1,5 +1,6 @@
 #pragma once
 #include "TarotDeck.h"
+#include "TarotReading.h"
 // responsible for menu and user input
 class App
 {
@@ -8,11 +9,11 @@ public:
 	void Run();
 private:
 	TarotDeck deck;
+	TarotReading readings;
 
+	void DisplayWelcome() const;
 	void DisplayMenu() const;
-	void DrawCard();
 	void BrowseCards();
 	void DisplayAbout() const;
-	void DisplayWelcome() const;
 };
 

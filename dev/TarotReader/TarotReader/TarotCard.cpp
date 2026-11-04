@@ -2,6 +2,7 @@
 #include "ConsoleColor.h"
 
 #include <iostream>
+#include <sstream>
 
 TarotCard::TarotCard(int number, const std::string& name, const std::string& keywords, const std::string& uprightMeaning, const std::string& reversedMeaning, const std::string& asciiArt)
 {
@@ -68,4 +69,51 @@ void TarotCard::DisplayCard() const
     std::cout << reversedMeaning << "\n";
 
     ConsoleColor::Print("----------------------------------------\n",ConsoleColor::Ink::Purple);
+}
+
+std::vector<std::string>TarotCard::GetAsciiLines() const
+{
+    std::vector<std::string> lines;
+    std::stringstream stream(asciiArt);
+
+    std::string line;
+
+    while (std::getline(stream, line))
+    {
+        if (!line.empty())
+        {
+            lines.push_back(line);
+        }
+    }
+    return lines;
+}
+
+void TarotCard::DisplayReading(bool isReversed) const
+{
+    std::cout << "\n";
+
+    ConsoleColor::Print(name + "\n", ConsoleColor::Ink::Purple);
+
+    if (isReversed)
+    {
+        ConsoleColor::Print("REVERSED\n", ConsoleColor::Ink::Red);
+    }
+    else
+    {
+        ConsoleColor::Print("UPRIGHT\n", ConsoleColor::Ink::Green);
+    }
+    std::cout << "\n";
+
+    ConsoleColor::Print("Keywords: ", ConsoleColor::Ink::Yellow);
+    std::cout << keywords << "\n";
+    ConsoleColor::Print("Meaning: ", ConsoleColor::Ink::Cyan);
+    if (isReversed)
+    {
+        std::cout << reversedMeaning << "\n";
+    }
+    else
+    {
+        std::cout << uprightMeaning << "\n";
+    }
+
 }
