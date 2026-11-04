@@ -5,22 +5,22 @@
 ## 📌 Project Overview
 
 **Project Name:**
-→   
+→   Tarot Reader
   
 **What does your program currently do? (1–3 sentences)**   
-→
+→ A one card and three card spreads, browse cards, show about, and welcome menu
 
 ---
 ## 🔍 Current Progress Check  
   
 **What is working right now?**   
-→   
+→   one card and three card spreads
   
 **What is NOT working or incomplete?**   
-→   
+→   three card spreads are off center
   
 **What feels confusing or messy in your code?**   
-→
+→ the major arcana is fully in the code rather than imported through a file 
 
 ---
 ## 🚀 Feature Planning  

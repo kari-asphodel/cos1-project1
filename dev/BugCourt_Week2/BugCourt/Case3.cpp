@@ -5,7 +5,7 @@ void Case3()
 {
     std::vector<int> scores = { 10, 20, 30 };
 
-    for (int i = 0; i <= scores.size(); i++)
+    for (int i = 0; i < scores.size(); i++)
     {
         std::cout << scores[i] << "\n";
     }
@@ -15,6 +15,6 @@ void Case3()
 // What is wrong with the loop?
 // A. The vector is empty
 // B. The loop skips index 0
-// C. The loop accesses one index beyond the vector
+// C. The loop accesses one index beyond the vector <--- THIS ONE
 // D. The vector needs to be a pointer
 // Cast your verdict in chat: A, B, C, or D.

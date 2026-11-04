@@ -3,7 +3,7 @@ void Case8()
 {
     std::cout << "1. Play\n";
     std::cout << "2. Exit\n";
-
+    std::cout << "7. Secret Shop\n";
     if (choice == 7)
     {
         openSecretShop();
@@ -15,5 +15,5 @@ void Case8()
 // A. The menu has too many options
 // B. The cout statements are invalid
 // C. The condition should use assignment
-// D. choice is undeclared and openSecretShop has no visible declaration
+// D. choice is undeclared and openSecretShop has no visible declaration <--- THIS ONE
 // Cast your verdict in chat: A, B, C, or D.

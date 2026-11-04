@@ -11,13 +11,14 @@ void Case2()
         if (choice == 1)
         {
             std::cout << "Goodbye!\n";
+            break;
         }
     }
 }
 
 // BUG COURT: CASE 2
 // Why does choosing Exit fail to end the menu?
-// A. The loop has no break or return after Goodbye
+// A. The loop has no break or return after Goodbye <--- THIS ONE
 // B. The menu needs a vector
 // C. The choice variable must be global
 // D. The cout statement is outside the loop
