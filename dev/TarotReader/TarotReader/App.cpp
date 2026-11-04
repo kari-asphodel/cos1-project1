@@ -38,7 +38,7 @@ void App::Run()
 			break;
 		case 5:
 			std::cout << "\n";
-			std::cout << "The cards have spoken. Until next time.\n";
+			ConsoleColor::Print("The cards have spoken. Until next time.\n", ConsoleColor::Ink::Purple);
 			break;
 		default:
 			ConsoleColor::Print("\nThe cards do not recognize that choice.\n", ConsoleColor::Ink::Red);
