@@ -1,5 +1,6 @@
 #include "App.h"
 #include "ConsoleColor.h"
+#include "TarotConstants.h"
 #include "Input.h"
 #include <cstdlib>
 #include <ctime>
@@ -16,11 +17,11 @@ void App::Run()
 
 	int choice = 0;
 
-	while (choice != 5)
+	while (choice != TarotConstants::MenuMaximum)
 	{
 		DisplayMenu();
 
-		choice = Input::GetNumber("Choose your path: ", 1,5);
+		choice = Input::GetNumber("Choose your path: ", TarotConstants::MenuMinimum,TarotConstants::MenuMaximum);
 
 		switch (choice)
 		{
@@ -43,6 +44,11 @@ void App::Run()
 		default:
 			ConsoleColor::Print("\nThe cards do not recognize that choice.\n", ConsoleColor::Ink::Red);
 			break;
+		}
+		if (choice != TarotConstants::MenuMaximum)
+		{
+			Input::WaitForEnter();
+			ClearScreen();
 		}
 	}
 }
@@ -75,9 +81,9 @@ void App::BrowseCards()
 	int cardChoice = 0;
 
 	std::cout << "\n";
-	cardChoice = Input::GetNumber("\nEnter a card number (0-21): ", 0, 21);
+	cardChoice = Input::GetNumber("\nEnter a card number (0-21): ", TarotConstants::FirstMajorArcana, TarotConstants::LastMajorArcana);
 
-	if (cardChoice >= 0 && cardChoice <= 21)
+	if (cardChoice >= TarotConstants::FirstMajorArcana && cardChoice <= TarotConstants::LastMajorArcana)
 	{
 		deck.DisplayCard(cardChoice);
 	}
@@ -117,4 +123,9 @@ void App::DisplayWelcome() const
 ConsoleColor::Ink::Purple
 );
 	ConsoleColor::Print("        The cards are waiting...\n\n", ConsoleColor::Ink::Cyan);
+}
+
+void App::ClearScreen() const
+{
+	std::system("cls");
 }
