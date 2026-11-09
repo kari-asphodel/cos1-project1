@@ -39,9 +39,13 @@ void TarotDeck::LoadDeckFromFile(const std::string& fileName)
         std::string uprightMeaning;
         std::string reversedMeaning;
 
-        if (!std::getline(stream, numberText, '|') || !std::getline(stream, name, '|') || !std::getline(stream, keywords, '|') || !std::getline(stream, uprightMeaning, '|') || !std::getline(stream, reversedMeaning, '|'))
+        if (!std::getline(stream, numberText, '|') ||
+            !std::getline(stream, name, '|') ||
+            !std::getline(stream, keywords, '|') ||
+            !std::getline(stream, uprightMeaning, '|') ||
+            !std::getline(stream, reversedMeaning))
         {
-            ConsoleColor::Print("Invalid card data on line " + std::to_string(lineNumber) + ".\n", ConsoleColor::Ink::Red);
+            ConsoleColor::Print("Invalid card data on line " +std::to_string(lineNumber) +".\n",ConsoleColor::Ink::Red);
             continue;
         }
         try
@@ -62,7 +66,7 @@ void TarotDeck::LoadDeckFromFile(const std::string& fileName)
     }
     inputFile.close();
 }
-std::string TarotDeck::CreateAsciiArt(int number, std::string& name) const
+std::string TarotDeck::CreateAsciiArt(int number, const std::string& name) const
 {
     std::stringstream art;
     art
@@ -83,7 +87,7 @@ std::string TarotDeck::CreateAsciiArt(int number, std::string& name) const
         << "|                       |\n";
 
     std::string displayName = name;
-    if (displayName.length > 21)
+    if (displayName.length() > 21)
     {
         displayName = displayName.substr(0, 21);
     }
