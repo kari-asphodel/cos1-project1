@@ -16,25 +16,30 @@ int Input::GetNumber(const std::string& prompt, int min, int max)
 
 		try // try the risky code
 		{
-			int number = std::stoi(input);
-			if (number >= min && number <= max)
+			std::size_t processedCharacters = 0;
+
+			int number = std::stoi(input, &processedCharacters);
+			if (processedCharacters != input.length())
 			{
-				return number;
+				ConsoleColor::Print("Please enter numbers only.\n", ConsoleColor::Ink::Red);
+				continue;
 			}
-			ConsoleColor::Print("That number is outside the available choices.\n", ConsoleColor::Ink::Red);
+			if (number < min || number > max)
+			{
+				ConsoleColor::Print("That number is outside the available choices.\n", ConsoleColor::Ink::Red);
+				continue;
+			}
+			
+			return number;
 		}
-		catch (const std::invalid_argument) // means string could not be converted
+		catch (...) // ... means catch all
 		{
-			ConsoleColor::Print("The cards require a number, mortal.\n", ConsoleColor::Ink::Red);
-		}
-		catch (const std::out_of_range&) // means number is outside the range an int can store
-		{
-			ConsoleColor::Print("That number is far too powerful for this menu.\n", ConsoleColor::Ink::Red);
+			ConsoleColor::Print("The cards require a valid number, mortal.\n", ConsoleColor::Ink::Red);
 		}
 	}
 }
 
-std::string Input::GetString(const std::string& prompt)
+std::string Input::GetString(const std::string& prompt, bool allowEmpty)
 {
 	while (true)
 	{
@@ -43,10 +48,17 @@ std::string Input::GetString(const std::string& prompt)
 		std::string input;
 		std::getline(std::cin, input);
 
-		if (!input.empty())
+		if (allowEmpty || !input.empty())
 		{
 			return input;
 		}
 		ConsoleColor::Print("The void cannot answer an empty question.\n", ConsoleColor::Ink::Red);
 	}
+}
+
+void Input::WaitForEnter()
+{
+	ConsoleColor::Print("\nPress Enter to Continue...\n", ConsoleColor::Ink::Cyan);
+	std::string input;
+	std::getline(std::cin, input);
 }
