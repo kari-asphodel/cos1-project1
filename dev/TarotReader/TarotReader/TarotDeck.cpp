@@ -106,6 +106,18 @@ std::string TarotDeck::CreateAsciiArt(int number, std::string& name) const
     return art.str();
 }
 
+bool TarotDeck::IsValidIndex(int index) const
+{
+    return index >= 0 && index < static_cast<int>(cards.size());
+}
+int TarotDeck::GetCardCount() const
+{
+    return static_cast<int>(cards.size());
+}
+bool TarotDeck::IsLoaded() const
+{
+    return cards.size() == 22;
+}
 void TarotDeck::DisplayDeck() const
 {
     std::cout << "\n=== MAJOR ARCANA ===\n\n";
