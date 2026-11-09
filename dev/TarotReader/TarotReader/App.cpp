@@ -41,9 +41,11 @@ void App::Run()
 			BrowseCards();
 			break;
 		case 4:
-			DisplayAbout();
+			readings.DisplayHistory();
 			break;
 		case 5:
+			DisplayAbout();
+		case 6:
 			std::cout << "\n";
 			ConsoleColor::Print("The cards have spoken. Until next time.\n", ConsoleColor::Ink::Purple);
 			break;
@@ -75,8 +77,9 @@ void App::DisplayMenu() const
 	ConsoleColor::Print("1. One-Card Reading\n", ConsoleColor::Ink::Cyan);
 	ConsoleColor::Print("2. Three-Card Reading\n", ConsoleColor::Ink::Cyan);
 	ConsoleColor::Print("3. Browse the Major Arcana\n", ConsoleColor::Ink::Cyan);
-	ConsoleColor::Print("4. About Tarot\n", ConsoleColor::Ink::Cyan);
-	ConsoleColor::Print("5. Exit\n", ConsoleColor::Ink::Cyan);
+	ConsoleColor::Print("4. Display Reading History\n", ConsoleColor::Ink::Cyan);
+	ConsoleColor::Print("5. About Tarot\n", ConsoleColor::Ink::Cyan);
+	ConsoleColor::Print("6. Exit\n", ConsoleColor::Ink::Cyan);
 
 	std::cout << "\n";
 }
