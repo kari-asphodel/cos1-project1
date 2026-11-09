@@ -13,6 +13,12 @@ App::App(): readings(deck)
 
 void App::Run()
 {
+	if (!deck.IsLoaded())
+	{
+		ConsoleColor::Print("\nThe tarot deck could not be loaded.\n", ConsoleColor::Ink::Red);
+		ConsoleColor::Print("\nThe program cannot continue.\n", ConsoleColor::Ink::Red);
+		return;
+	}
 	DisplayWelcome(); 
 
 	int choice = 0;
