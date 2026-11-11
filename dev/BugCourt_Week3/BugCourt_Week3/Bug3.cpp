@@ -3,7 +3,7 @@ int main()
 {
     int health = 50;
 
-    if (health = 0)
+    if (health == 0)
     {
         std::cout << "Game Over\n";
     }
@@ -15,7 +15,7 @@ int main()
     return 0;
 }
 // What does the condition if (health = 0) actually do ?
-//- A. Assigns zero to health, then evaluates as false.
+//- A. Assigns zero to health, then evaluates as false.  - THIS ONE
 //- B. Compares health with zero correctly.
 //- C. Causes a guaranteed compile error.
 //- D. Leaves health at 50 and enters the if branch.

@@ -11,7 +11,7 @@ int main()
     Enemy monster;
 
     monster.name = "Grave Crawler";
-    monster.Health = 100;
+    monster.health = 100;
 
     std::cout << monster.health;
 
@@ -21,5 +21,5 @@ int main()
 //- A. Enemy must have a constructor.
 //- B. monster.name is invalid syntax.
 //- C. health must be a string.
-//- D. The code assigns to monster.Health, but the member is named health.
+//- D. The code assigns to monster.Health, but the member is named health.  - THIS ONE
 //- E. The monster’s health insurance refuses to cover capitalization - related injuries.

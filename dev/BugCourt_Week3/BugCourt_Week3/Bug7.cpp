@@ -14,6 +14,7 @@ public:
     Character(const Character& other)
     {
         name = other.name;
+        health = other.health;
     }
     void Display()
     {
@@ -27,7 +28,7 @@ int main()
     player2.Display();
 }
 // What is wrong with this copy constructor ?
-//- A. It copies name but leaves health uninitialized.
+//- A. It copies name but leaves health uninitialized. - THIS ONE
 //- B. Copy constructors cannot accept references.
 //- C. player2 and player1 are always the same object.
 //- D. Display() must return an integer.
